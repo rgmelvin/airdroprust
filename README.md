@@ -93,7 +93,7 @@ cargo test enroll -- --nocapture
 
 ## Scripts Overview
 
-## 1. Key Generation(`keygen`)
+## 1.  Key Generation(`keygen`)
 
 - **Purpose**: Generate a new Solana keypair.
 - **Usage**:
@@ -105,7 +105,7 @@ cargo test keygen -- --nocapture
     - A **64-byte array** for the private key
         Copy the array into `dev-wallet.json` for future use.
 
-## 2. Base58 Conversions (`base58_to_wallet` / `wallet_to_base58)
+## 2.  Base58 Conversions (`base58_to_wallet` / `wallet_to_base58`)
 
 - **Purpose**: Convert **base58**-encoded private keys to **byte array** format, or vice vesa.
 - **Usage**:
@@ -115,7 +115,7 @@ cargo test wallet_to_base58 -- --nocapture
 ```
 - **Prompt**: You paste your private key string or array at runtime.
 
-## 3. Airdrop Dev Wallet (`airdrop`)
+## 3.  Airdrop Dev Wallet (`airdrop`)
 
 - **Purpose**: Request **2 SOL** worth of lamports from the Solana DevNet faucet into the dev wallet.
 - **Usage**:
@@ -124,7 +124,7 @@ cargo test airdrop -- --nocapture
 ```
 - **Requires**: `dev-wallet.json` with your key.
 
-## 4. Transfer SOL (`transfer_sol`)
+## 4.  Transfer SOL (`transfer_sol`)
 
 - **Purpose**: Send 0.1 SOL (or 0.001, depending on the code) form `dev-wallet.json` to your Turbin3 address on DevNet.
 - **Usage**:
@@ -173,15 +173,19 @@ One of the biggest learning points in this exercise is dealing with **Anchor-sty
         "type": { "kind": "account" }
     }
     ```
+
 2. `"type": { "kind": "account" }` **vs.** "type": { "kind": "program" }
     - Normal accounts (like your dev wallet or "prereq") use "kind": "account".
     - Program accounts (e.g., `system_program`) need `"kind": "program"`.
+
 3. `"version"` **and** `"name"` **at the Top level**
     - Anchor expects a **top-level** `"version"` (e.g., `"0.1.0"`) and `"name"` (e.g., `"turbin3_prereq"`).
     - Not ust under `"metadata"`.
+
 4. **Inline vs. Defined Structs**
     - If you have a custom account struct (`Solanacohort5Account`) at the top level, you can do `"type": { "kind": "struct","fields":[...] }"` **inline** or reference it via `"type": { "defined":"SolanaCohort5Account"}` and define it under `"types"`.
     - Make sure you only do one or the other, not both.
+
 5. **Detailed JSON***
 - Watch out for trailing commas, missing commas, or keys spelled incorrectly.
 
@@ -191,8 +195,8 @@ I recommend tackling these issues step by step if you run into them (better for 
 
 ## Keeping Keys Safe
 
-1. `.gitignore` excludes any files named `*wallet.json` so you don't accidentaly commit your private keys.
-2. **Don't** push real mainnet keys into GitHub.
-3. consider rotaing to new dev keys if you ever accidentally commit them.
+1.  `.gitignore` excludes any files named `*wallet.json` so you don't accidentaly commit your private keys.
+2.  **Don't** push real mainnet keys into GitHub.
+3.  Consider rotaing to new dev keys if you ever accidentally commit them.
 
 Happy coding!
