@@ -93,7 +93,7 @@ cargo test enroll -- --nocapture
 
 ## Scripts Overview
 
-# 1. Key Generation(`keygen`)
+## 1. Key Generation(`keygen`)
 
 - **Purpose**: Generate a new Solana keypair.
 - **Usage**:
@@ -105,7 +105,7 @@ cargo test keygen -- --nocapture
     - A **64-byte array** for the private key
         Copy the array into `dev-wallet.json` for future use.
 
-# 2. Base58 Conversions (`base58_to_wallet` / `wallet_to_base58)
+## 2. Base58 Conversions (`base58_to_wallet` / `wallet_to_base58)
 
 - **Purpose**: Convert **base58**-encoded private keys to **byte array** format, or vice vesa.
 - **Usage**:
@@ -115,7 +115,7 @@ cargo test wallet_to_base58 -- --nocapture
 ```
 - **Prompt**: You paste your private key string or array at runtime.
 
-# 3. Airdrop Dev Wallet (`airdrop`)
+## 3. Airdrop Dev Wallet (`airdrop`)
 
 - **Purpose**: Request **2 SOL** worth of lamports from the Solana DevNet faucet into the dev wallet.
 - **Usage**:
@@ -124,7 +124,7 @@ cargo test airdrop -- --nocapture
 ```
 - **Requires**: `dev-wallet.json` with your key.
 
-# 4. Transfer SOL (`transfer_sol`)
+## 4. Transfer SOL (`transfer_sol`)
 
 - **Purpose**: Send 0.1 SOL (or 0.001, depending on the code) form `dev-wallet.json` to your Turbin3 address on DevNet.
 - **Usage**:
@@ -133,7 +133,7 @@ cargo test transfer_sol -- --nocapture
 ```
 - **Output**: A transaction link on [Solana Explorer (DevNet)](#https://explorer.solana.com/?cluster=devnet).
 
-# 5. Empty Dev Wallet (`empty_wallet`)
+## 5. Empty Dev Wallet (`empty_wallet`)
 
 - **Purpose**: Send the **entire** dev wallet balance to a specified address (like your Turbin3 or any wallet).
 - **Usage**:
@@ -145,7 +145,7 @@ cargo test empty_wallet -- --nocapture
     - Estimate transaction fee.
     - Transfer everything except the fee to free up the dev wallet.
 
-# 6. Enroll (`enroll`)
+## 6. Enroll (`enroll`)
 - **Purpose**: Calls the **Turbin3** program's `complete` instruction to confirm your enrollment.
 - **Usage**:
 ```bash
